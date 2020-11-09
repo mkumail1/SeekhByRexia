@@ -1,0 +1,151 @@
+<% var user = currentUser; %>
+<% var course = course; %>
+<% var enrolled = enrolled %>
+<% var checkPointUser = userFound;%>
+<% var subjects = subjects %>
+<% var i = 0%>
+
+<% include partials/headerLoggedIn %>
+
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 px-0 pt-4 offset-1 offset-md-0 col-10 text-dark courseDashboardLeftPanel">
+                <p class="h4 courseNameDashboard mt-0 pb-4 text-center"><small class="px-3 text-dark courseDashboardTitle"><%=course.dataValues.title%> - <%=course.dataValues.fullForm%></small></p>
+                <a href="#" class="active tabsSubjects"><p class="h5 pt-3 pb-2 px-4 text-dark courseDashboardOverview">Overview</p></a>
+                <div class="tabs">
+                    <%subjects.forEach((subject)=>{%>
+                        <%i++;%>
+                        <%if(i==1){%>
+                            <a href="#<%=subject.subjectName%>Div" class="tabsSubjects"><p class="h5 pt-3 pb-2 px-5 text-dark subjects"><%=subject.subjectName%></p></a>
+                        <%}else if (i == subjects.length){%>
+                            <a href="#<%=subject.subjectName%>Div" class="tabsSubjects"><p class="h5 pt-2 pb-3 px-5 text-dark subjects"><%=subject.subjectName%></p></a>
+                        <%}else{%>
+                            <a href="#<%=subject.subjectName%>Div" class="tabsSubjects"><p class="h5 pt-2 pb-2 px-5 text-dark subjects"><%=subject.subjectName%></p></a>
+                        <%}%>
+                    <%})%>
+                </div>
+                <a href="#" class="tabsSubjects"><p class="h5 pt-2 pb-2 px-4 text-dark courseDashboardOverview">Notes</p></a>
+                <a href="#" class="tabsSubjects"><p class="h5 pt-2 pb-3 px-4 text-dark courseDashboardOverview">Forums</p></a>
+            </div>
+            <div class="col-md-10 col-12 pt-4">
+                <!-- currentProgress div -->
+                <div class="row">
+                    <div class="col-10 offset-1 text-dark text-center pb-3">
+                        <p class="h1 pb-2"><%=course.dataValues.title%> - <%=course.dataValues.fullForm%></p>
+                        <p class="h5 fontWeight500">by SEEKH</p>
+                    </div>
+                </div>
+                <%if(!checkPointUser){%>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="card progressCard">
+                                <div class="card-header courseProgressHeader text-white">
+                                    <p class="courseProgressHeader">Test yourself before you jump in!</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fontWeight500">Random Mock Test</h5>
+                                    <p class="card-text">Random Subject/Chapter</p>
+                                    <a href="/course/1/subject/1/chapter/2/mcqPage" class="btn btn-info">Start</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%}else{%>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="card progressCard">
+                                <div class="card-header courseProgressHeader text-white">
+                                    <p class="courseProgressHeader">Continue where you left off</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fontWeight500">SubjectID: <%=checkPointUser.dataValues.subjectID%></h5>
+                                    <p class="card-text">chapterID: <%=checkPointUser.dataValues.chapterID%>, topic number: <%=checkPointUser.dataValues.topicID%></p>
+                                    <a href="/course/<%=course.dataValues.course_id%>/subject/<%=checkPointUser.dataValues.subjectID%>/chapter/<%=checkPointUser.dataValues.chapterID%>/mcqPage" class="btn btn-info">Start</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+                <%subjects.forEach((subject)=>{%>
+                    <div class="row">
+                        <div class="col-10 offset-1">
+                            <div class="card" id="<%=subject.subjectName%>Div">
+                                <div class="card-header">
+                                    <p class=""><%=subject.subjectName%></p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title fontWeight500"><%=subject.subjectName%></h5>
+                                    <p class="card-text">chapter, topic number</p>
+                                    <div class="row">
+                                        <div class="offset-1 col-10 col-md-5">
+                                            <div class="row text-md-right text-center px-md-5 px-2 py-3 partsColSubject">
+                                                <div class="col-12 py-3">
+                                                    <a href="#" class="h6 px-0 fontWeight500">Part - I <i class="fa fa-check-circle-o text-secondary" aria-hidden="true"></i> 75% left</a>
+                                                </div>
+                                                <div class="col-12 pb-3">
+                                                    <a href="#" class="h6 px-0 fontWeight500">Part - II <i class="fa fa-check-circle-o text-secondary" aria-hidden="true"></i> 25% left</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 col-10 offset-1 offset-md-0">
+                                            <div class="row text-md-left text-center px-md-5 px-2 py-3">
+                                                <div class="col-12 py-3">
+                                                    <a href="#" class="h6"> <i class="fa fa-dot-circle-o" aria-hidden="true"></i> MCQs Attempted: 230 </a>
+                                                </div>
+                                                <div class="col-12 pb-3">
+                                                    <a href="#" class="h6"><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Correct MCQs: 130</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-10 offset-1 pt-md-4 pt-2 pb-4">
+                                            <div class="progress mx-auto" data-value='25'>
+                                                <span class="progress-left">
+                                                    <span class="progress-bar border-danger"></span>
+                                                </span>
+                                                <span class="progress-right">
+                                                    <span class="progress-bar border-danger"></span>
+                                                </span>
+                                                <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+                                                    <div class="h2 font-weight-bold">25<sup class="small">%</sup></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="/course/<%=course.dataValues.course_id%>/subject/<%=subject.subjectID%>" class="btn btn-danger btn-block">Start</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%});%>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>
+
+<!-- script for circular progress bar -->
+<script>
+    $(document).ready((function() {
+        $(".progress").each(function() {
+            var value = $(this).attr('data-value');
+            var left = $(this).find('.progress-left .progress-bar');
+            var right = $(this).find('.progress-right .progress-bar');
+            if (value > 0) {
+                if (value <= 50) {
+                    right.css('transform', 'rotate(' + percentageToDegrees(value) + 'deg)')
+                } else {
+                    right.css('transform', 'rotate(180deg)')
+                    left.css('transform', 'rotate(' + percentageToDegrees(value - 50) + 'deg)')
+                }
+            }
+        })
+            function percentageToDegrees(percentage) {
+            return percentage / 100 * 360
+        }
+    }));  
+</script>
+        

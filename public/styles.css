@@ -1,0 +1,231 @@
+.fontRaleway{
+    font-family: 'Raleway', sans-serif;
+}
+.registerBox{
+    background-color: white;
+    color: black;
+}
+#loginItem, #userID{
+    color: #f57765;
+    cursor: pointer;
+}
+.card-register{
+    background-color: white;
+}
+.colorWhite{
+    color: white;
+}
+.colorGreyishWhite{
+    color: #dad5d4;
+}
+div.card-body.questionOfTheDayCategory{
+    padding-top: 0px;
+}
+#cardCustomQuestionOfTheDay{
+    margin-top: 1.2rem;
+}
+.leaderboardHeader{
+    color: pink;
+}
+.Leaderboards{
+    padding-top: 5rem;
+}
+.usernameDiv{
+    opacity: 0;
+}
+#featuredCourses{
+    background: rgb(233, 223, 224);  /* fallback for old browsers */
+    /* background: -webkit-linear-gradient(to bottom, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to top, #EAEAEA, #DBDBDB, #F2F2F2, rgb(207, 203, 184)); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+.courseSplash{
+    background: #f4f4f4;
+}
+
+@media screen and (max-width: 4000px){
+    .courseJumbotron{
+        border-radius: 0;
+        background-size: contain;
+        /* background-size: 100% 160%; */
+        background-size: 100% 160%;
+        background-position: bottom;
+        padding: 7rem 0;
+    }
+}
+
+.textShadowBlack{
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.fontWeighted{
+    font-weight: 500;
+}
+
+.courseDashboardLeftPanel{
+    background: #f0f0f0;
+}
+
+.subjects:hover, .tabsSubjects:hover, .courseDashboardOverview:hover, .subjects:active{
+    border-left: 4px solid #f7765f;
+    background: white;
+}
+
+.courseNameDashboard{
+    border-bottom: 1px solid black;
+}
+.courseDashboardOverview{
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+
+.subjects{
+    font-weight: 500;
+    font-size: 1.0625rem;
+}
+
+.courseDashboardTitle{
+    font-weight: 600;
+}
+
+.fontWeight500{
+    font-weight: 500;
+}
+
+.courseProgressHeader{
+    background: rgb(102,97,91);
+    font-weight: 500;
+}
+
+.progressCard{
+    border-radius: 0;
+}
+
+.partsColSubject{
+    border-right: 1px solid rgb(0,0,0,0.2);
+}
+
+.fontWeight200{
+    font-weight: 200;
+}
+/* for progress bar circlular */
+.progress {
+    width: 150px;
+    height: 150px;
+    background: none;
+    position: relative;
+  }
+  
+  .progress::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid #eee;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .progress > span {
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .progress .progress-left {
+    left: 0;
+  }
+  
+  .progress .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 6px;
+    border-style: solid;
+    position: absolute;
+    top: 0;
+  }
+  
+  .progress .progress-left .progress-bar {
+    left: 100%;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-left: 0;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
+  }
+  
+  .progress .progress-right {
+    right: 0;
+  }
+  
+  .progress .progress-right .progress-bar {
+    left: -100%;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    border-right: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+  
+  .progress .progress-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+.topics{
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 4.5rem;
+    background: #e7e7e7;
+}
+
+.topics:hover{
+    border-left: 6px solid #f7765f;
+    background: white;
+}
+
+.introduction{
+    padding-bottom: .75rem;
+    border-bottom: 1px solid #dad5d4;
+}
+
+.reviseDiv{
+    background-color: aliceblue;
+}
+
+.mcqLabel{
+    width: 100%;
+}
+.backgroundBlue{
+    background-color: aliceblue;
+}
+
+@media screen and (max-width: 768px){
+    .courseJumbotron{
+        background-size: 120% 100%;
+        background-position: right; 
+    }
+    .subjects{
+        font-weight: 500;
+        font-size: .9rem;
+    }
+    .partsColSubject{
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+    .progress {
+        width: 130px;
+        height: 130px;
+    }
+    .topics{
+        font-size: .85rem;
+    }
+}
